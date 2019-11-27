@@ -61,7 +61,9 @@ def cekEkstensi(x):
 def cekAwal(x):
     status= True
     for i in x:
-        if i in  karakter:
+        if i == '@':
+            status= True
+        elif i == '.':
             status= True
             break
         else:
