@@ -1,13 +1,14 @@
 # def cekNamaUser():
 # x= 'linda_andiyani@gma-il.com5'
 # print(x.split('-'))
-x= input('ketikkan alamat email (harus berformat NamaUser@Hosting.EKstensi): ')
+x= input('ketikkan alamat email : ')
 
 
 
 hurufAgkarakter= ['-','_','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']
 huruf = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 hurufAngka=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']
+karakter = ['@','.']
 for i in x:
     if i == '@':
         indeksUser = int(x.index(i))
@@ -57,17 +58,29 @@ def cekEkstensi(x):
 # cekNamaUser(x)
 # cekHosting(x)
 # cekEkstensi(x)
-
+def cekAwal(x):
+    status= True
+    for i in x:
+        if i in  karakter:
+            status= True
+            break
+        else:
+            status = False
+    return status
 def cekEmail(x):
     # semuaValid = False
-    cekUser = cekNamaUser(x)
-    cekHost = cekHosting(x)
-    cekEkst = cekEkstensi(x)
-    if cekUser and cekHost and cekEkst == True:
-        # semuaValid = True
-        print('Email  VALID')
-    else:
-        print('email TIDAK VALID')
+    awalan= cekAwal(x)
+    if awalan == True:
+        cekUser = cekNamaUser(x)
+        cekHost = cekHosting(x)
+        cekEkst = cekEkstensi(x)
+        if cekUser and cekHost and cekEkst == True:
+            # semuaValid = True
+            print('Email  VALID')
+        else:
+            print('email TIDAK VALID')
+    else: 
+        print('email tidak valid')
 
 cekEmail(x)
 
